@@ -62,7 +62,8 @@ function openModal(projectId) {
             <h3>프로젝트 개요</h3>
             <ul>
               <li><strong>목표:</strong> 자율주행 차량 기반 AI 달리기 자세 분석 플랫폼 개발</li>
-              <li><strong>주요 기능:</strong> 영상 분석, 자세 분류, 실시간 피드백 제공</li>
+              <li><strong>배경:</strong> MZ 세대의 건강한 놀이 문화인 러닝의 적극적인 지원</li>
+              <li><strong>주요 기능:</strong> 객체 인식을 통한 로봇카 자율주행, 영상 분석, 자세 분류, 실시간 피드백 제공</li>
             </ul>
           </div>
           <div class="modal-right">
@@ -75,24 +76,31 @@ function openModal(projectId) {
             <h3>사용 기술</h3>
             <p><strong>Mobile:</strong> React-Native-cli: 2.0.1, React-Native 0.74.3, NodeJS v8.20.4 LTS, Android Studio Koala.</p>
             <p><strong>Back-end:</strong> Oracle Java 17.0.12, Spring boot 3.3.1, SpringSecurity 6.3.1, JPA, Swagger 2.9.2, MariaDB 10.3.23</p>
-            <p><strong>AI:</strong> python 3.10.14, FAST-API 0.111.1, tensorflow 2.12.0</p>
+            <p><strong>AI:</strong> python 3.10.14, FAST-API 0.111.1, TensorFlow 2.12.0</p>
             <p><strong>AIoT:</strong> Jetson Orin Nano Dev-Kit, Python3.8.10, YOLOv8n-pose, YOLOv8s, OpenCV</p>
           </section>
           <section>
             <h3>담당 역할</h3>
             <p><strong>AI 모델 선정: </strong>달리기 자세를 평가하기 위한 AI 모델 선정</p>
             <p><strong>AI 모델 전개: </strong>FastAPI를 통한 AI 모델 서빙 API 코드 작성</p>
+            <p><strong>데이터 시각화 및 협업: </strong>협업을 위한 데이터 시각화 결과를 GIF로 제작하여 공유</p>
           </section>
           <section>
             <h3>구현 사항</h3>
             <p><strong>실시간 AI 분석:</strong> 영상 데이터를 실시간으로 분석하여 사용자의 자세 피드백 제공, YOLO 모델을 활용해 관절 포인트를 추출하고, LSTM으로 자세를 분석 및 분류, GPU 환경(CUDA, CuDNN) 구축 및 데이터 학습 시간 단축</p>
-            <p><strong>데이터 시각화:</strong> 분석 데이터를 시각적으로 표현하여 협업 간 이해도 향상</p>
+            <p><strong>데이터 증강 및 전처리:</strong> 좌우 반전, 회전, 잡음 추가를 통해 데이터 다양성 확보, JSON 데이터를 기반으로 LSTM 입력 형식의 시퀀스 데이터 생성</p>
+            <p><strong>데이터 시각화 및 공유:</strong> 올바른 자세와 잘못된 자세를 시각적으로 비교 가능한 GIF 제작, 분석 데이터를 시각적으로 표현하여 협업 간 이해도 향상</p>
             <img src="./assets/img/posemate.gif" alt="POSEMATE 데이터 시각화" class="modal-image" width=250px/>
           </section>
           <section>
             <h3>프로젝트 성과 및 결과</h3>
-            <p>달리기 자세를 4개의 클래스로 분류하고, LSTM 모델에 학습시켜 자세 예측 및 점수화를 통한 피드백 제공</p>
-            <p>공통 프로젝트 우수상(9팀 중 2등) 및 본선 발표회 진출</p>
+            <p>LSTM 모델을 통해 4가지 자세 클래스로 분류, 약 98%의 정확도 달성, 사용자별 팔, 다리, 상체 점수와 종합 점수를 실시간 피드백으로 제공</p>
+            <p>공통 프로젝트 우수상 (9팀 중 2위) 수상 및 본선 발표회 진출</p>
+          </section>
+          <section>
+            <h3>문제 해결 사례</h3>
+            <p><strong>문제:</strong> Jetson Orin Nano 메모리 제한으로 OpenPose 실행 불가</p>
+            <p><strong>해결:</strong> YOLOv8으로 모델 변경 및 경량화 진행, CUDA와 CuDNN으로 학습 시간 30% 단축</p>
           </section>
         </div>
       </div>
@@ -108,6 +116,7 @@ function openModal(projectId) {
             <h3>프로젝트 개요</h3>
             <ul>
               <li><strong>목표:</strong> AI 기반 맞춤형 뉴스 브리핑 및 퀴즈 제공</li>
+              <li><strong>배경:</strong> 바쁜 아침 시간을 효율적으로 사용하고 싶은 현대인들을 위한 서비스, 지식 습득의 일상화를 위한 다수의 기능을 포함한 서비스</li>
               <li><strong>주요 기능:</strong> 알람 설정, 브리핑 제공, 퀴즈 생성</li>
             </ul>
           </div>
@@ -126,13 +135,14 @@ function openModal(projectId) {
           </section>
           <section>
             <h3>담당 역할</h3>
-            <p><strong>AI 개발: </strong>LDA를 통한 토픽 모델링, KoBart 모델을 활용한 AI 뉴스 요약</p>
+            <p><strong>AI 개발: </strong>LDA를 통한 토픽 모델링, AI 모델을 활용한 뉴스 요약</p>
             <p><strong>프론트엔드 개발: </strong>모바일 기능 구현 위한 PWA 설정, 외부 라이브러리를 활용한 페이지 구현으로 UX 향상</p>
           </section>
           <section>
             <h3>구현 사항</h3>
             <p>React를 활용한 UI 설계 및 PWA 설정, Wake Lock API로 모바일 UX 개선, 모바일 환경에서 알람 및 브리핑 서비스를 원활히 제공</p>
-            <p>네이버 뉴스 기사 페이지에서 정치, 경제, 사회, 생활/문화, IT/기술, 세계의 6개 카테고리에 대해 BS4를 이용한 정적 크롤링을 진행, Kobart 모델을 통한 AI 요약 데이터를 바탕으로 사용자의 관심사를 반영한 브리핑 생성</p>
+            <p>네이버 뉴스 기사 페이지에서 정치, 경제, 사회, 생활/문화, IT/기술, 세계의 6개 카테고리에 대해 BS4를 이용한 정적 크롤링을 진행</p>
+            <p>Kobart 모델을 통한 AI 요약 데이터를 바탕으로 사용자의 관심사를 반영한 브리핑 생성</p>
             <img src="./assets/img/honeymorning_lda.png" alt="Honey Morning LDA" class="modal-image"/>
             <p class="caption">pyLDAvis로 시각화한 LDA 토픽 모델링 HTML</p>
           </section>
@@ -158,7 +168,7 @@ function openModal(projectId) {
           <ul>
             <li><strong>목표:</strong> 생성형 AI와 멀티 에이전트를 활용한 비트코인 자동매매 플랫폼 개발</li>
             <li><strong>배경:</strong> 금융 투자업에서의 대형 언어 모델(LLM)의 활용 가능성 및 복잡한 프로세스의 자동화</li>
-            <li><strong>주요 기능:</strong> 비트코인 AI 자동매매, 개인 투자 성향 설정, 상세 AI 전략 열람</li>
+            <li><strong>주요 기능:</strong> AI 에이전트 6개를 활용한 비트코인 자동매매, 개인 투자 성향 설정, 상세 AI 전략 열람</li>
           </ul>
         </div>
         <div class="modal-right">

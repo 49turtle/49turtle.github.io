@@ -1,4 +1,9 @@
 /* 기본 스타일 */
+html {
+  scroll-behavior: smooth;
+}
+
+
 body {
   margin: 0;
   font-family: "Arial", sans-serif;
@@ -51,20 +56,23 @@ p {
 .hero-content .btn {
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: none;
+  background-color: transparent; /* none → transparent */
+  border: 2px solid #fff; /* 외곽선 추가 */
   color: white;
   font-size: 1rem;
   text-transform: uppercase;
-  border: none;
   border-radius: 5px;
   text-decoration: none;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease;
   animation: fadeIn 2s ease-in-out;
 }
 
 .hero-content .btn:hover {
-  background-color: #0056b3;
+  background-color: #fff;
+  color: #000;
+  transform: scale(1.05);
 }
+
 
 .profile-pic {
   width: 150px;
@@ -78,15 +86,20 @@ p {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* About Section */
+/* About Section 수정 */
 #about {
+  min-height: 100vh; /* 최소 높이를 100vh로 설정하여 Hero와 비슷하게 만듦 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 수직 중앙 정렬 */
   padding: 70px 20px;
-  color: #fff; /* 밝은 텍스트 색상 */
-  border-radius: 15px; /* 모서리 둥글게 */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* 박스 그림자 */
+  color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   text-align: center;
-  max-width: 1300px; /* 소개글 최대 너비 제한 */
-  margin: 0 auto; /* 섹션을 중앙 정렬 */
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
 }
 
 #about h2 {
@@ -98,34 +111,32 @@ p {
   color: white;
 }
 
+/* About 내용 강조 및 애니메이션 추가 */
 #about p {
-  font-size: 1.2rem; /* 본문 크기 조정 */
-  line-height: 1.8; /* 줄 간격 넉넉히 */
+  font-size: 1.2rem;
+  line-height: 1.8;
   margin-top: 20px;
-  font-family: "Open Sans", sans-serif; /* 가독성 높은 폰트 */
+  font-family: "Open Sans", sans-serif;
+  text-align: center; /* 중앙 정렬 추가 */
+  animation: fadeIn 1.5s ease-out;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* 텍스트 그림자 */
+}
+
+#about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* 어두운 오버레이 */
+  z-index: -1;
+  border-radius: 15px;
 }
 
 #about p span {
   color: white;
   font-weight: bold;
-}
-
-#about p::before {
-  content: "“"; /* 큰 따옴표 추가 */
-  font-size: 4rem;
-  color: white; /* 따옴표 강조 */
-  display: block;
-  margin-bottom: -20px; /* 따옴표와 제목 간격 조정 */
-  font-family: serif;
-}
-
-#about::after {
-  content: "”"; /* 큰 따옴표 닫기 */
-  font-size: 4rem;
-  color: white;
-  display: block;
-  margin-top: 20px;
-  font-family: serif;
 }
 
 /* Skills Section */
@@ -208,7 +219,7 @@ p {
 /* Portfolio Section */
 #portfolio {
   padding: 50px 20px;
-  background: #222;
+  background: black;
   text-align: center;
 }
 
@@ -222,7 +233,7 @@ p {
 .project-category {
   margin: 40px auto; /* 섹션 중앙 정렬 */
   padding: 20px;
-  background: #333;
+  background: black;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   max-width: 1200px; /* Skills 섹션과 같은 너비 설정 */
@@ -245,6 +256,7 @@ p {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center; /* 텍스트 중앙 정렬 */
+  position: relative;
 }
 
 .project img {
@@ -258,6 +270,23 @@ p {
 .project:hover {
   transform: scale(1.05);
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.project::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 10px;
+}
+
+.project:hover::after {
+  opacity: 1;
 }
 
 .project h4 {
@@ -315,6 +344,7 @@ p {
   width: 90%;
   max-width: 1000px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.5s ease;
 }
 
 .close {
@@ -380,6 +410,8 @@ p {
   max-width: 100%;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: block;       /* 블록 요소로 변경 */
+  margin: 0 auto;       /* 좌우 자동 마진으로 가운데 정렬 */
 }
 
 .caption {
@@ -423,6 +455,12 @@ p {
   margin: 10px 0;
 }
 
+.hero-content .btn:focus,
+.close:focus {
+  outline: 2px dashed #fff;
+  outline-offset: 2px;
+}
+
 /* 애니메이션 */
 @keyframes fadeIn {
   from {
@@ -451,4 +489,38 @@ footer {
   text-align: center;
   font-size: 0.9rem;
   color: #aaaaaa;
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+  #about h2 {
+    font-size: 2rem;
+  }
+  #about p {
+    font-size: 1rem;
+  }
+  #skills h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* 공통 섹션 마진: 각 섹션의 위아래에 일정한 여백 추가 */
+/* section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+} */
+
+/* 섹션 구분선: 필요에 따라 각 섹션 아래에 추가 */
+section:not(:last-of-type)::after {
+  content: "";
+  display: block;
+  width: 80%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 40px auto 0;
 }

@@ -41,7 +41,6 @@ function openModal(projectId) {
             <p><strong>프론트엔드 주요 기능 개발:</strong> sessionStorage 활용한 유저 상태 유지, 동적 헤더 UI, 데이터 페이지네이션 구현</p>
             <p><strong>데이터 수집 및 처리:</strong> 데이터를 크롤링 및 가공해 단위 변환 및 SQL문 생성 자동화 코드 구현</p>
             <img src="./assets/img/vitamine_comb.gif" alt="영양제 조합 분석" class="modal-image"/>
-            <p class="caption">VitaMine: 내 영양제 조합 분석</p>
           </section>
           <section>
             <h3>문제 해결 사례</h3>
@@ -248,10 +247,17 @@ function closeModal() {
   modal.style.display = "none";
 }
 
-// 화면 밖을 클릭했을 때 모달 닫기
-window.addEventListener("click", (event) => {
-  const modal = document.getElementById("modal");
-  if (event.target === modal) {
-    closeModal();
-  }
+// DOMContentLoaded 이벤트 내에 이벤트 리스너 등록
+document.addEventListener("DOMContentLoaded", function () {
+  // 닫기 버튼에 이벤트 리스너 추가
+  const modalClose = document.getElementById("modalClose");
+  modalClose.addEventListener("click", closeModal);
+
+  // 화면 밖 클릭 시 모달 닫기
+  window.addEventListener("click", (event) => {
+    const modal = document.getElementById("modal");
+    if (event.target === modal) {
+      closeModal();
+    }
+  });
 });
